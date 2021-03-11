@@ -6,7 +6,7 @@ module.exports = router;
 
 router.get("/", controller.landing_page);
 
-router.get("/guestbook", controller.entries_list);
+router.get("/goaltracker", controller.entries_list);
 
 router.get('/new', controller.new_entry);
 
@@ -20,10 +20,11 @@ router.use(function(req, res) {
     res.send('404 Not found.');
 })
 
-router.use(function(req, res) {
+router.use(function(err, req, res, next) {
     res.status(500);
     res.type('text/plain');
     res.send('500 Internal Server Error. Sorry.');
+    console.log(err);
 })
 
 module.exports = router;

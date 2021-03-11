@@ -1,46 +1,34 @@
  <head>
        {{>header}}
     </head>
-    <body class ="container">
+    <body style="margin-top: 100px; background-color: seagreen;" class ="container">
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-            <a href="/new" class="btn btn-primary">
-             Write in the guest book
+            <a href="/new" class="text-right btn rounded-pill btn-outline-info" style="padding: 10px;">
+             Write a new gial!
             </a>     
            </div> 
-        {{#entries}}
-        <div class="card">
-            <div class="card-header">
-            {{subject}}
-        </div>
-        <div class="card-body">
-            <div class="card-text">
-            {{contents}}
-            </div>
-            <div class="card-text">
-            Written by {{author}}, on {{published}}
-            </div>
-            </div>
-        <div class ="mx-auto card-deck">
-        {{#entries}}        
-            <div class="card shadow-lg" style="min-width: 30rem; max-width: 30rem;">
+           <div class="card-group gap-2" style="padding: 10px;"></div>
+            {{#entries}}
+            <div class="card border-primary shadow-lg" style="max-width: fit-content;">
                 <div class="card-header">
                     {{subject}}
                 </div>
-                <div class="card-body">
-                 <p class="card-text">
-                {{contents}}
-                </p>
-            <p class="card-footer">
+                <div class="card-body" style="min-height: fit-content;">
+                    <div class="card-text">
+                        {{contents}}
+                    </div>
+                <div class="card-footer text-muted">
                 Written by {{author}}, on {{published}}
-            </p>
+                </div>
+            </div>
+    
         </div>
-    </div>
-
         <hr>
         {{/entries}}
-        {{/entries}}</div>
+    </div>
+
         {{^entries}}
         No entries yet.
         {{/entries}}

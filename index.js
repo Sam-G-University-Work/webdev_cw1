@@ -20,7 +20,3 @@ app.listen(3000, () => {
     console.log('Server started on port 3000. Ctrl^ to quit.');
 })
 
-app.use(function(req, res) {
-    res.status(404);
-    res.send('Error');
-} )

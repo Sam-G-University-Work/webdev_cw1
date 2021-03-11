@@ -1,5 +1,5 @@
 const { response } = require('express');
-const goalTackerDAO = require('../models/goalTrackerModel');
+const goalTrackerDAO = require('../models/goalTrackerModel');
 const db = new goalTrackerDAO();
 
 exports.landing_page = function(req, res) {

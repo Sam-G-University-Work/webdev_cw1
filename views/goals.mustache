@@ -1,37 +1,39 @@
  <head>
        {{>header}}
     </head>
-    <body style="margin-top: 100px; background-color: seagreen;" class ="container">
+    <body style="margin-top: 100px;" class ="container">
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-            <a href="/new" class="text-right btn rounded-pill btn-outline-info" style="padding: 10px;">
-             Write a new gial!
+        <h1>Goal Tracker</h1>
+        <h2>View all planed goals</h2>
+            <a href="/new" class="btn btn-outline-success" style="padding: 10px;">
+             Write a new goal!
             </a>     
            </div> 
            <div class="card-group gap-2" style="padding: 10px;"></div>
-            {{#entries}}
+            {{#goals}}
             <div class="card border-primary shadow-lg" style="max-width: fit-content;">
                 <div class="card-header">
-                    {{subject}}
+                    {{goal}}
                 </div>
                 <div class="card-body" style="min-height: fit-content;">
                     <div class="card-text">
-                        {{contents}}
+                        {{notes}}
                     </div>
                 <div class="card-footer text-muted">
-                Written by {{author}}, on {{published}}
+                Created by {{name}}, on {{created}}
                 </div>
             </div>
     
         </div>
         <hr>
-        {{/entries}}
+        {{/goals}}
     </div>
 
-        {{^entries}}
-        No entries yet.
-        {{/entries}}
+        {{^goals}}
+        No goals yet.
+        {{/goals}}
         
         <script src="" async defer></script>
     </body>

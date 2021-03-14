@@ -4,10 +4,10 @@ const db = new goalTrackerDAO();
 
 exports.landing_page = function(req, res) {
     db.init();
-    db.getAllEntries().then((list) => {
-        res.render('entries', {
+    db.getAllGoals().then((list) => {
+        res.render('goals', {
             'title': 'Goal Tracker',
-            'entries': list
+            'goals': list
         });
         console.log('Promise Resolved');
     }).catch((err)=>{
@@ -15,25 +15,25 @@ exports.landing_page = function(req, res) {
     })
 }
 
-exports.entries_list = function(req, res) {
+exports.goals_list = function(req, res) {
     res
-    res.render('entries',
+    res.render('goals',
      {'title': 'Goal Tracker'
     });
 }
 
-exports.new_entry = function(req, res) {
-    res.render('newEntry', { 
+exports.new_goal = function(req, res) {
+    res.render('newGoal', { 
         'title': 'Goal Tracker'
     })
 }
 
-exports.post_new_entry = function(req, res) {
-    if (!req.body.author) {
-        response.status(400).send("Entries must have an author.");
+exports.post_new_goal = function(req, res) {
+    if (!req.body.name && !req.body.goal) {
+        response.status(400).send("Must put your name and a goal.");
         return;
     }
-        db.addEntry(req.body.author, req.body.subject, req.body.contents);
+        db.addGoal(req.body.name, req.body.goal, req.body.notes);
         res.redirect('/');
     
 }

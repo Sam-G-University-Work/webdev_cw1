@@ -13,60 +13,59 @@ class GoalTracker{
         }
     }
     
-    //a function to seed the database
     init() {
         this.db.insert({
-            subject: 'I liked the exhibition',
-            contents: 'nice',
-            published: '2020-02-16',
-            author: 'Peter'
+            goal: 'Go Swimming',
+            notes: 'Do 20 Lengths of each of the following'
+             +'\nBreast Stroke \nFront Crawl \nButterfly'
+             +'\nAt the time Capsual',
+            created: '2021-03-08',
+            name: 'Sam'
         })
-        //for later debugging
-        console.log('db entry Peter inserted');
+
+        console.log('db swimming goal inserted');
     
         this.db.insert({
-            subject: "Didn't like it",
-            contents: 'A really terrible style',
-            published: '2020-02-18',
-            author: 'Ann'
+            goal: "Go Climbing",
+            notes: 'Complete 2 new V6 problems'
+            +'\nDo 10 pull ups'
+            +'\nUse the finger board to work up finger strength',
+            created: '2021-03-12',
+            name: 'Sam'
         })
-        //for later debugging
+
         console.log('db entry Anne inserted');
     
     }
 
-    getAllEntries(){
+    getAllGoals(){
         return new Promise((resolve, reject) => {
-            //use the find() function of the database to get the data
-            //error first callback function, err for error, entries for data
-            this.db.find({}, function(err, entries){
+            this.db.find({}, function(err, goals){
                 if (err){
                 reject(err);
-                //if no error, resolve the promise & return the data
-                 } else {
-            resolve(entries);
-            //to see what the returned data looks like 
-            console.log('function all() returns ', entries);
-        }   
-        })
+                } else {
+                    resolve(goals);
+                    console.log('function all() returns ', goals);
+                }      
+            })
         })
     }
 
-    addEntry(author, subject, contents) {
+    addGoal(name, goal, notes) {
 
-        var entry = {
-            author: author,
-            subject: subject,
-            contents: contents,
-            published: new Date().toISOString().split('T')[0]
+        var newGoal = {
+            name: name,
+            goal: goal,
+            notes: notes,
+            created: new Date().toISOString().split('T')[0]
         }
-        console.log('entry created', entry);
+        console.log('goal added!', newGoal);
         
-        this.db.insert(entry, function(err, doc) {
+        this.db.insert(newGoal, function(err, doc) {
             if (err) {
-                console.log('Error inserting document', subject);
+                console.log('Error inserting goal', goal);
             } else {
-                console.log('document inserted into the database', doc);
+                console.log('goal inserted into the database', doc);
             }
         })
     }

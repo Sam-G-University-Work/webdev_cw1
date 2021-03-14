@@ -6,11 +6,11 @@ module.exports = router;
 
 router.get("/", controller.landing_page);
 
-router.get("/goaltracker", controller.entries_list);
+router.get("/goaltracker", controller.goals_list);
 
-router.get('/new', controller.new_entry);
+router.get('/new', controller.new_goal);
 
-router.post('/new', controller.post_new_entry);
+router.post('/new', controller.post_new_goal);
 
 router.get('/about', controller.about);
 

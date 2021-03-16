@@ -7,10 +7,9 @@
         <![endif]-->
         <h1>Goal Tracker</h1>
         <h2>View all planed goals</h2>
-            <a href="/new" class="btn btn-outline-success" style="padding: 10px;">
-             Write a new goal!
-            </a>     
-           </div> 
+            <a href="/new" class="btn btn-outline-primary" style="padding: 10px;">Write a new goal!</a>     
+            <a href="/about" class="btn btn-outline-dark" style="padding: 10px;">About Us</a>     
+        </div> 
            <div class="card-group gap-2" style="padding: 10px;"></div>
             {{#goals}}
             <div class="card border-primary shadow-lg" style="max-width: fit-content;">
@@ -23,18 +22,20 @@
                     </div>
                 <div class="card-footer text-muted">
                 Created by {{name}}, on {{created}}
+                    <div>
+                        <a href="/view" class="btn btn-outline-secondary">View</a> 
+                        <a href="/delete" class="btn btn-outline-danger">Delete</a> 
+                        <a href="/share" class="btn btn-outline-info">Share</a> 
+                    </div>
                 </div>
             </div>
-    
         </div>
         <hr>
         {{/goals}}
     </div>
-
         {{^goals}}
-        No goals yet.
+        No goals yet
         {{/goals}}
-        
         <script src="" async defer></script>
     </body>
 </html>

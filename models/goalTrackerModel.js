@@ -16,9 +16,9 @@ class GoalTracker{
     init() {
         this.db.insert({
             goal: 'Go Swimming',
-            notes: 'Do 20 Lengths of each of the following'
-             +'\nBreast Stroke \nFront Crawl \nButterfly'
-             +'\nAt the time Capsual',
+            notes: 'Do 20 Lengths of each of the following: '
+             +'Breast Stroke, Front Crawl, Butterfly '
+             +'At the time Capsual',
             created: '2021-03-08',
             name: 'Sam'
         })
@@ -27,9 +27,9 @@ class GoalTracker{
     
         this.db.insert({
             goal: "Go Climbing",
-            notes: 'Complete 2 new V6 problems'
-            +'\nDo 10 pull ups'
-            +'\nUse the finger board to work up finger strength',
+            notes: 'Complete 2 new V6 problems, '
+            +'Do 10 pull ups, '
+            +'Use the finger board to work up finger strength',
             created: '2021-03-12',
             name: 'Sam'
         })

@@ -1,6 +1,7 @@
 const { response } = require('express');
 const goalTrackerDAO = require('../models/goalTrackerModel');
 const db = new goalTrackerDAO();
+//const db = new GoalsDAO('newgoals.db');
 
 exports.landing_page = function(req, res) {
     db.init();
@@ -39,5 +40,8 @@ exports.post_new_goal = function(req, res) {
 }
 
 exports.about = function(req, res) {
-    res.redirect('/about.html');
+    res.render('about', {
+        'title': 'About Us',
+        'company': 'Let\'s Get Ripped'
+    });
 }

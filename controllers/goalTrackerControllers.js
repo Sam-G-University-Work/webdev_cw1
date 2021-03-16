@@ -4,7 +4,7 @@ const goalTrackerDAO = require('../models/goalTrackerModel');
 const db = new goalTrackerDAO('goalTracker.db');
 
 exports.landing_page = function(req, res) {
-    db.init();
+
     db.getAllGoals().then((list) => {
         res.render('goals', {
             'title': 'Goal Tracker',
@@ -21,6 +21,12 @@ exports.goals_list = function(req, res) {
     res.render('goals',
      {'title': 'Goal Tracker'
     });
+}
+
+exports.seed = function(req, res){
+    db.init();
+    console.log('Database seeded')
+    res.redirect('/');
 }
 
 exports.new_goal = function(req, res) {

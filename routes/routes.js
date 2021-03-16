@@ -14,6 +14,8 @@ router.post('/new', controller.post_new_goal);
 
 router.get('/about', controller.about);
 
+router.get('/seed', controller.seed);
+
 router.use(function(req, res) {
     res.status(404);
     res.type('text/plain');

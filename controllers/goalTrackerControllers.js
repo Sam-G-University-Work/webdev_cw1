@@ -1,7 +1,7 @@
 const { response } = require('express');
 const goalTrackerDAO = require('../models/goalTrackerModel');
 const db = new goalTrackerDAO();
-//const db = new GoalsDAO('newgoals.db');
+//const db = new goalTrackerDAO('newgoals.db');
 
 exports.landing_page = function(req, res) {
     db.init();

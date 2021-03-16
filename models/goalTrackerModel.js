@@ -12,7 +12,7 @@ class GoalTracker{
             console.log('db connected in memory');
         }
     }
-    
+
     init() {
         this.db.insert({
             goal: 'Go Swimming',
@@ -34,8 +34,25 @@ class GoalTracker{
             name: 'Sam'
         })
 
-        console.log('db entry Anne inserted');
+        console.log('db climbing goal inserted');
+
+        this.db.insert({
+            goal: "Do Karate",
+            notes: 'Do a started class',
+            created: '2021-02-23',
+            name: 'Sam'
+        })
+
+        console.log('db karate goal inserted');
     
+        this.db.insert({
+            goal: "Go Running",
+            notes: 'try couch to 5K, Don\'t forget to stretch',
+            created: '2021-02-26',
+            name: 'Sam'
+        })
+
+        console.log('db running goal inserted');
     }
 
     getAllGoals(){
